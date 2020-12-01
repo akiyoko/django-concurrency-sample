@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>決済</h3>
+
+<hr>
+
+book: {{ book.id }}<br>
+book_stock: {{ book_stock.quantity }}<br>
+order: {{ order.get_status_display }}<br>
+
+<hr>
+
+<form action="/shop/checkout/{{ book.pk }}/" method="post">
+  {% csrf_token %}
+  <input class="btn btn-primary" type="submit" value="決済">
+</form>
+
+{% endblock %}

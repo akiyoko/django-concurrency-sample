@@ -1,0 +1,19 @@
+[
+  {
+    "model": "shop.book",
+    "pk": 1,
+    "fields": {
+      "title": "Book 1",
+      "price": 1000
+    }
+  },
+  {
+    "model": "shop.bookstock",
+    "pk": 1,
+    "fields": {
+      "book": 1,
+      "quantity": 10,
+      "updated_at": "2020-12-01T04:45:33.803Z"
+    }
+  }
+]
