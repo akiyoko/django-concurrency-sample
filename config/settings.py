@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'concurrency.middleware.ConcurrencyMiddleware',
     # 'shop.middlewares.DBAccessMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -57,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CONCURRENCY_HANDLER409 = 'common.handlers.conflict'
 
 ROOT_URLCONF = 'config.urls'
 

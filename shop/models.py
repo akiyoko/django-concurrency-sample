@@ -1,5 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from concurrency.fields import AutoIncVersionField
+
 
 User = get_user_model()
 
@@ -28,6 +30,7 @@ class BookStock(models.Model):
     book = models.OneToOneField(Book, verbose_name='本', on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField('在庫数', default=0)
     updated_at = models.DateTimeField('更新日時', auto_now=True)
+    version = AutoIncVersionField(verbose_name='バージョン')
 
     def __str__(self):
         return f'{self.book.title} ({self.quantity})'

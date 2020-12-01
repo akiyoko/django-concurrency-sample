@@ -8,6 +8,11 @@ class BookAdmin(admin.ModelAdmin):
     readonly_fields = ('id',)
 
 
+class BookStockAdmin(admin.ModelAdmin):
+    list_display = ('book', 'quantity', 'updated_at', 'version')
+    readonly_fields = ('id', 'updated_at', 'version')
+
+
 class OrderAdmin(admin.ModelAdmin):
     readonly_fields = ('id', 'ordered_by', 'ordered_at')
 
@@ -18,5 +23,5 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Book, BookAdmin)
-admin.site.register(BookStock)
+admin.site.register(BookStock, BookStockAdmin)
 admin.site.register(Order, OrderAdmin)
